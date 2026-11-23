@@ -1,23 +1,242 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>La Herencia · A mystery in easy Spanish</title>
-<meta name="description" content="La Herencia, Libro 1: Puerto Rico. A mystery in easy Spanish for adult beginners, by Geo Giovanni.">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="La Herencia, Libro 1: Puerto Rico. A mystery in easy Spanish for adult beginners by Geo Giovanni. Read Chapter 1 free, in Spanish and English.">
+<meta property="og:title" content="La Herencia · Read Chapter 1 free"><meta property="og:image" content="https://laherenciabook.com/art/cover.jpg">
+<style>:root{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+</head><body>
+<title>La Herencia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
 <style>
-body{margin:0;background:#FBF7EF;color:#1E2B33;font-family:Avenir Next,Avenir,Helvetica,Arial,sans-serif}
-main{max-width:880px;margin:0 auto;padding:48px 20px;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
-img{width:280px;max-width:100%;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-.t{flex:1;min-width:260px}
-h1{color:#0E6278;font-size:44px;margin:0 0 4px}
-.k{color:#D65430;letter-spacing:2px;font-size:13px;text-transform:uppercase;margin:0 0 18px}
-p{line-height:1.6}
-.soon{display:inline-block;margin-top:12px;padding:12px 20px;background:#0E6278;color:#fff;border-radius:999px;font-weight:600}
-</style></head><body><main>
-<img src="cover.jpg" alt="La Herencia, Libro 1: Puerto Rico, book cover">
-<div class="t">
-<p class="k">Libro 1 · Puerto Rico</p>
-<h1>La Herencia</h1>
-<p><strong>A mystery in easy Spanish for adult beginners.</strong></p>
-<p>Elena is 54, newly alone, and she barely speaks Spanish. Then a letter arrives from Puerto Rico: an aunt she never met has left her a house and land in the mountains of Utuado.</p>
-<span class="soon">Coming soon on Amazon</span>
-<p style="margin-top:28px;font-size:14px;color:#5a6670">by Geo Giovanni</p>
-</div></main></body></html>
+/* Layout: one reading column like a printed graded reader; gouache art breaks the text at scene beats; a sticky bar holds the language switch. */
+:root{
+  --paper:#fbfaf6; --ink:#1d2b36; --muted:#5d6b73; --sea:#1f6f8b; --mango:#f2b632; --hibiscus:#e0563c; --leaf:#3f7d4e;
+  --line:#e4e0d4; --en-bg:#eef4f6; --chip:#fff4d6; --bar:rgba(251,250,246,.92);
+  --display:"Bricolage Grotesque",system-ui,sans-serif; --read:"Literata",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#14191d; --ink:#ece8dc; --muted:#9aa6ad; --sea:#6cb8d4; --mango:#f2c04f; --hibiscus:#f07a62; --leaf:#7fbf8e;
+  --line:#2a3238; --en-bg:#1b252b; --chip:#3a3220; --bar:rgba(20,25,29,.92); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#14191d; --ink:#ece8dc; --muted:#9aa6ad; --sea:#6cb8d4; --mango:#f2c04f; --hibiscus:#f07a62; --leaf:#7fbf8e;
+  --line:#2a3238; --en-bg:#1b252b; --chip:#3a3220; --bar:rgba(20,25,29,.92); color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--read);font-size:19px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:680px;margin:0 auto}
+a{color:var(--sea)}
+:focus-visible{outline:3px solid var(--mango);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:32px;align-items:center;padding-block:40px 28px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--hibiscus)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,9vw,76px);line-height:.95;margin:.15em 0 .2em;color:var(--sea);letter-spacing:-.01em;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);margin:0 0 14px;max-width:36ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--display);font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.tag.level{background:var(--leaf);border-color:var(--leaf);color:var(--paper)}
+.cover{width:100%;border-radius:6px;box-shadow:0 14px 34px -14px rgba(0,0,0,.45);transform:rotate(1.5deg)}
+@media (max-width:620px){header.hero{grid-template-columns:1fr;padding-top:24px}.cover{max-width:200px;order:-1}}
+
+/* Sticky language bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bar);backdrop-filter:blur(8px);
+  border-block:1px solid var(--line);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));
+  padding:10px max(16px,env(safe-area-inset-left,0px))}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.seg{display:inline-flex;border:1.5px solid var(--sea);border-radius:999px;overflow:hidden}
+.seg button{font:600 14px var(--display);border:0;background:transparent;color:var(--sea);padding:7px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--sea);color:var(--paper)}
+.hint{font:500 13px var(--display);color:var(--muted)}
+
+/* Chapter */
+.chap{padding-block:36px 8px}
+.chap h2{font-family:var(--display);font-weight:800;font-size:34px;line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.chap .q{font-style:italic;color:var(--muted);margin:0 0 28px}
+.pair{margin:0 0 22px}
+.es{margin:0}
+.es.dlg{padding-left:14px;border-left:3px solid var(--mango)}
+.tr{font:600 12px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--sea);background:none;border:0;padding:4px 0;cursor:pointer}
+.tr:hover{text-decoration:underline}
+.en{margin:6px 0 0;padding:10px 14px;background:var(--en-bg);border-radius:8px;font-size:17px;line-height:1.6;color:var(--ink)}
+.mode-es .en,.mode-en .es,.mode-en .tr,.mode-both .tr{display:none}
+.mode-es .pair.open .en{display:block}
+.mode-en .en{background:none;padding:0;font-size:19px;line-height:1.7;margin:0}
+.letter{background:var(--chip);border-radius:4px;padding:18px 20px;font-style:italic;box-shadow:0 1px 0 var(--line)}
+.letter .es,.letter .en{margin:0}
+.w{border-bottom:2px dotted var(--hibiscus);cursor:help;font-weight:600;position:relative}
+.w:hover::after,.w:focus::after{content:attr(data-g);position:absolute;left:0;bottom:calc(100% + 4px);white-space:nowrap;
+  font:600 13px var(--display);background:var(--ink);color:var(--paper);padding:3px 8px;border-radius:6px;z-index:3}
+figure{margin:34px 0}
+figure img{width:100%;border-radius:10px;display:block}
+figcaption{font:500 14px var(--display);color:var(--muted);margin-top:8px}
+
+/* Toolkit */
+.kit{border-top:1px solid var(--line);margin-top:40px;padding-block:30px}
+.kit h3{font-family:var(--display);font-weight:800;font-size:24px;margin:0 0 4px}
+.kit .sub{color:var(--muted);font-size:16px;margin:0 0 18px}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 24px;margin:0 0 32px;padding:0;list-style:none;font-size:16px}
+.gloss li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:4px 0}
+.gloss b{font-weight:600}
+.gloss span{color:var(--muted);text-align:right}
+.phr{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.phr li{background:var(--chip);border-radius:8px;padding:10px 14px}
+.phr b{display:block;font-family:var(--display);font-size:18px}
+.phr span{color:var(--muted);font-size:16px}
+
+/* Next chapter */
+.next{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;background:var(--en-bg);border-radius:14px;padding:22px;margin:10px 0 48px}
+.next img{width:100%;border-radius:10px;display:block}
+.next h3{font-family:var(--display);font-weight:800;font-size:22px;margin:4px 0 8px}
+.next p{margin:0 0 12px;font-size:16px}
+.cta{display:inline-block;font:700 15px var(--display);background:var(--hibiscus);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none}
+.buy{display:flex;flex-wrap:wrap;gap:8px}
+.cta.alt{background:transparent;color:var(--hibiscus);border:2px solid var(--hibiscus);padding:8px 16px}
+.cta[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.soon{font:500 13px var(--display);color:var(--muted);margin:8px 0 0}
+@media (max-width:620px){.next{grid-template-columns:1fr}}
+footer{font:500 13px var(--display);color:var(--muted);text-align:center;padding-block:0 40px}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Libro 1 · Puerto Rico</div>
+      <h1>La Herencia</h1>
+      <p class="lede">Elena inherits a farm in Puerto Rico from an aunt she never met. She speaks almost no Spanish. You learn with her.</p>
+      <div class="meta"><span class="tag level">Level A1</span><span class="tag">Capítulo 1 gratis</span><span class="tag">Latin American Spanish</span></div>
+    </div>
+    <img class="cover" src="art/cover.jpg" alt="Book cover: Elena holds a key and a notebook beside Rafael on a Puerto Rican farm">
+  </header>
+</div>
+
+<div class="bar" role="region" aria-label="Language">
+  <div class="wrap">
+    <div class="seg" role="group" aria-label="Show the story in">
+      <button id="m-es" type="button" data-mode="es" aria-pressed="true">Español</button>
+      <button id="m-both" type="button" data-mode="both" aria-pressed="false">Español + English</button>
+      <button id="m-en" type="button" data-mode="en" aria-pressed="false">English</button>
+    </div>
+    <span class="hint" id="hint">Tap <b>Translate</b> under any paragraph. Hover dotted words.</span>
+  </div>
+</div>
+
+<main class="wrap mode-es" id="story">
+  <section class="chap">
+    <div class="eyebrow">Capítulo 1</div>
+    <h2 data-es="La carta" data-en="The Letter">La carta</h2>
+    <p class="q" data-es="¿Quién deja una casa a una mujer que no conoce?" data-en="Who leaves a house to a woman she doesn't know?">¿Quién deja una casa a una mujer que no conoce?</p>
+    <div id="paras"></div>
+  </section>
+
+  <section class="kit" aria-labelledby="k1">
+    <h3 id="k1">Vocabulario</h3>
+    <p class="sub">The new words from this chapter.</p>
+    <ul class="gloss" id="gloss"></ul>
+    <h3>Frases para robar</h3>
+    <p class="sub">Steal these. You can use them today.</p>
+    <ul class="phr">
+      <li><b>No tengo ganas de nada.</b><span>I don't feel like doing anything.</span></li>
+      <li><b>Algo no está bien.</b><span>Something isn't right.</span></li>
+      <li><b>No entiendo nada.</b><span>I don't understand anything.</span></li>
+    </ul>
+  </section>
+
+  <aside class="next">
+    <img src="art/rafael.jpg" alt="Elena with a notebook talks to Rafael, who holds up an old key, beside a blue trunk">
+    <div>
+      <div class="eyebrow">Capítulo 2 · La llegada</div>
+      <h3>Who is the man singing in Doña Carmen's yard?</h3>
+      <p>Keep reading in the full book: twelve chapters, one family mystery, recipes and playlists, a glossary and quiz after every chapter.</p>
+      <div class="buy">
+        <a class="cta" id="buy-amazon" href="#" target="_blank" rel="noopener">Buy on Amazon · Kindle &amp; paperback</a>
+        <a class="cta alt" id="buy-direct" href="#" target="_blank" rel="noopener">Instant ebook download</a>
+      </div>
+      <p class="soon" id="soon">Out Nov 30, 2026. Links go live on launch day.</p>
+    </div>
+  </aside>
+</main>
+<footer class="wrap">© 2026 Geo Giovanni · Word of Geo</footer>
+
+<script>
+// Each item: es, en, optional kind ("dlg" dialogue, "letter", "img").
+// Glossary words are written [[word|meaning]].
+// Paste the real links here on launch day. Empty = button shows as "coming soon".
+const LINKS={amazon:"", direct:""};
+for(const [k,id] of [["amazon","buy-amazon"],["direct","buy-direct"]]){
+  const a=document.getElementById(id);
+  if(LINKS[k]) a.href=LINKS[k]; else {a.setAttribute("aria-disabled","true");a.removeAttribute("href")}
+  if(k==="direct"&&!LINKS.direct) a.hidden=true;
+}
+if(LINKS.amazon) document.getElementById("soon").hidden=true;
+
+const P=[
+ {es:"Son las ocho de la mañana. Estoy en mi cocina con una [[taza|cup]] de café frío. Tengo música de fondo: una canción vieja, “Bésame Mucho.” Me gusta mucho esa canción. La música siempre me ayuda a pensar.",
+  en:"It's eight in the morning. I'm in my kitchen with a cup of cold coffee. I have music on in the background: an old song, “Bésame Mucho.” I really like that song. Music always helps me think."},
+ {es:"No tengo ganas de nada. Hace tres meses que Robert murió. Robert era mi [[prometido|fiancé]]. La [[boda|wedding]] era en junio, pero ya no hay boda. Todavía llevo su [[suéter|sweater]] viejo en las mañanas frías.",
+  en:"I don't feel like doing anything. Robert died three months ago. Robert was my fiancé. The wedding was going to be in June, but now there is no wedding. I still wear his old sweater on cold mornings."},
+ {es:"Me llamo Elena. Tengo 54 años y vivo sola en Orlando, Florida. Trabajé muchos años en la [[moda|fashion]]: ropa, estilo, [[diseño|design]]. Ahora, sin Robert, mi casa está muy [[silenciosa|quiet, silent]].",
+  en:"My name is Elena. I'm 54 and I live alone in Orlando, Florida. I worked in fashion for many years: clothes, style, design. Now, without Robert, my house is very quiet."},
+ {es:"El [[cartero|mail carrier]] llega. Trae una carta grande con muchos [[sellos|stamps]] de colores. No es una carta normal. Viene de Puerto Rico.",
+  en:"The mail carrier arrives. He brings a big letter with lots of colorful stamps. It isn't a normal letter. It comes from Puerto Rico."},
+ {es:"Abro el [[sobre|envelope]]. Dentro hay una carta de un [[abogado|lawyer]].",
+  en:"I open the envelope. Inside is a letter from a lawyer."},
+ {kind:"letter",es:"Estimada Sra. Vázquez: Doña Carmen Ríos murió el mes pasado en San Juan. Usted es su única [[heredera|heir]]. Doña Carmen le deja una casa y un [[terreno|plot of land]] en Utuado. Por favor, venga a Puerto Rico pronto.",
+  en:"Dear Mrs. Vázquez: Doña Carmen Ríos died last month in San Juan. You are her only heir. Doña Carmen leaves you a house and a plot of land in Utuado. Please come to Puerto Rico soon."},
+ {es:"Leo la carta tres veces. Después busco mis [[gafas|glasses]] y leo otra vez. Con gafas, tampoco entiendo nada. Es como en las películas.",
+  en:"I read the letter three times. Then I find my glasses and read it again. With glasses, I still don't understand anything. It's like in the movies."},
+ {es:"Yo no conozco a ninguna Carmen Ríos. Mi familia es pequeña. Solo tengo a mi madre, y ella nunca habla de nadie en Puerto Rico. Mi madre se llama Geovanna. Ella habla español, pero no habla español conmigo. En nuestra casa, siempre hablamos inglés.",
+  en:"I don't know any Carmen Ríos. My family is small. I only have my mother, and she never talks about anyone in Puerto Rico. My mother's name is Geovanna. She speaks Spanish, but she doesn't speak Spanish with me. In our house, we always speak English."},
+ {es:"Llamo a mi madre por teléfono.", en:"I call my mother."},
+ {kind:"dlg",es:"–Mamá, ¿conoces a una mujer que se llama Carmen Ríos?", en:"“Mom, do you know a woman named Carmen Ríos?”"},
+ {es:"Hay un silencio largo.", en:"There's a long silence."},
+ {kind:"dlg",es:"–Elena… –dice mi madre, con voz [[rara|strange]]–. Ven a mi casa esta tarde. Tengo café. Y tengo una historia.",
+  en:"“Elena…” my mother says, in a strange voice. “Come to my house this afternoon. I have coffee. And I have a story.”"},
+ {es:"Algo no está bien. Mi madre nunca habla así.", en:"Something isn't right. My mother never talks like that."},
+ {es:"Esa tarde, mi madre me cuenta la verdad: Carmen Ríos era la hermana de mi abuela. Hace muchos años, la familia tuvo un problema grande. Nadie habla de eso. Mi abuela y su hermana [[dejaron de hablarse|stopped speaking to each other]] para siempre.",
+  en:"That afternoon, my mother tells me the truth: Carmen Ríos was my grandmother's sister. Many years ago, the family had a big problem. Nobody talks about it. My grandmother and her sister stopped speaking to each other forever."},
+ {kind:"dlg",es:"–Tu abuela nunca regresó a Puerto Rico –dice mi madre–. Yo tampoco. Pero tú tienes que ir. Es tu [[herencia|inheritance]].",
+  en:"“Your grandmother never went back to Puerto Rico,” my mother says. “Neither did I. But you have to go. It's your inheritance.”"},
+ {es:"Esa noche no puedo dormir. Pienso en Robert. Pienso en la casa en Puerto Rico. Pienso en una familia que no conozco. Pongo música otra vez, una canción vieja de Celia Cruz, para estar [[tranquila|calm]].",
+  en:"That night I can't sleep. I think about Robert. I think about the house in Puerto Rico. I think about a family I don't know. I put music on again, an old Celia Cruz song, to calm down."},
+ {kind:"img",src:"art/llegada.jpg",alt:"Elena in a yellow dress with a suitcase looks out at the sea, green mountains and chickens in Puerto Rico",cap:"Voy a ir a Puerto Rico. · I'm going to Puerto Rico."},
+ {es:"Decido algo importante: voy a ir a Puerto Rico. Pero hay un problema grande. No hablo español.",
+  en:"I decide something important: I'm going to Puerto Rico. But there's a big problem. I don't speak Spanish."},
+ {es:"¿Cómo voy a hablar con una familia que no conozco?", en:"How am I going to talk to a family I don't know?"}
+];
+
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const words=new Map();
+const mark=s=>esc(s).replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g,(_,w,g)=>{if(!words.has(w))words.set(w,g);return `<span class="w" tabindex="0" data-g="${g}">${w}</span>`});
+const box=document.getElementById("paras");
+P.forEach((p,i)=>{
+  if(p.kind==="img"){box.insertAdjacentHTML("beforeend",`<figure><img src="${p.src}" alt="${esc(p.alt)}"><figcaption>${esc(p.cap)}</figcaption></figure>`);return}
+  const cls=p.kind==="letter"?"pair letter":"pair";
+  box.insertAdjacentHTML("beforeend",
+   `<div class="${cls}"><p class="es${p.kind==="dlg"?" dlg":""}" lang="es">${mark(p.es)}</p>`+
+   `<button class="tr" type="button" aria-expanded="false" id="tr${i}">Translate</button>`+
+   `<p class="en" lang="en">${esc(p.en)}</p></div>`);
+});
+document.getElementById("gloss").innerHTML=[...words].map(([w,g])=>`<li><b lang="es">${w}</b><span>${g}</span></li>`).join("");
+
+box.addEventListener("click",e=>{
+  const b=e.target.closest(".tr"); if(!b)return;
+  const pair=b.parentElement, open=pair.classList.toggle("open");
+  b.textContent=open?"Hide":"Translate"; b.setAttribute("aria-expanded",open);
+});
+
+const story=document.getElementById("story"), hint=document.getElementById("hint");
+const hints={es:"Tap <b>Translate</b> under any paragraph. Hover dotted words.",both:"Spanish first, English underneath.",en:"English only. Switch back when you're ready."};
+function setMode(m){
+  story.classList.remove("mode-es","mode-both","mode-en"); story.classList.add("mode-"+m);
+  document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===m));
+  document.querySelectorAll("[data-es]").forEach(el=>el.textContent=m==="en"?el.dataset.en:el.dataset.es);
+  hint.innerHTML=hints[m];
+  try{localStorage.setItem("lh-mode",m)}catch(e){}
+}
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+let saved="es"; try{saved=localStorage.getItem("lh-mode")||"es"}catch(e){}
+setMode(saved);
+</script>
+
+</body></html>
